@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.horse {
+    display: flex;
+    flex-direction: row; /* A imagem e o texto ficam lado a lado */
+    background: white;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.image-container {
+    position: relative;
+    width: 150px;  /* Garantir um tamanho fixo para a imagem */
+    height: 150px; /* Garantir que a imagem tenha o tamanho correto */
+}
+
+.horse img {
+    width: 100%; /* Imagem ocupará 100% da área da container */
+    height: 100%; /* Manter a altura fixada */
+    object-fit: cover; /* Faz com que a imagem cubra toda a área sem distorção */
+    border-radius: 8px;
+}
+
+.horse h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    color: white;
+    border-radius: 8px 8px 0 0; /* Bordas arredondadas no topo */
+}
+
+.horse p {
+    margin-left: 1rem; /* Descrição à direita da imagem */
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Efeito de zoom e ocultação do nome */
+.image-container:hover img {
+    transform: scale(1.5); /* Aumenta a imagem em 50% */
+}
+
+.image-container:hover h2 {
+    opacity: 0; /* Oculta o nome da imagem */
+}
