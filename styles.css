@@ -6,6 +6,33 @@ body {
     background-color: #F5F5DC; /* Fundo bege suave */
 }
 
+/* Estilo do cabeçalho */
+/* Estilo do cabeçalho */
+/* Estilo do cabeçalho */
+/* Estilo do cabeçalho */
+.header {
+    display: flex;
+    align-items: center; /* Alinha a logo e o nome verticalmente */
+    justify-content: flex-start; /* Alinha logo e nome à esquerda */
+    background-color: #8B6F47; /* Marrom suave, que combina bem com bege */
+    padding: 20px;
+    border-bottom: 3px solid #ddd; /* Linha abaixo do cabeçalho */
+}
+
+/* Logo */
+.logo {
+    width: 50px; /* Tamanho da logo */
+    height: auto;
+}
+
+/* Nome da Hípica */
+.hipica-name {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 10px; /* Espaço entre logo e nome */
+}
+
 /* Título principal */
 .title {
     text-align: center;
