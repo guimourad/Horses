@@ -2,29 +2,82 @@ interface Cavalo {
     nome: string;
     descricao: string;
     imagem: string;
+    raca: string; // Adicionando a propriedade 'raca'
 }
 
+// Lista de cavalos com raça
 const cavalos: Cavalo[] = [
-    { nome: "Sirius", descricao: "Arabe", imagem: "cavalos/sirius.jpg" },
-    { nome: "Polaris", descricao: "Puro sangue Ingles", imagem: "cavalos/polaris.jpg" },
-    { nome: "Himalaia", descricao: "Manga-larga", imagem: "cavalos/Himalaia.jpg"},
-    { nome: "Havena", descricao: "Manga-larga", imagem: "cavalos/.jpg"},
-    { nome: "BelaTrix", descricao: "Manga-larga", imagem: "cavalos/BelaTrix.jpg"},
-    { nome: "Oreon", descricao: "Manga-larga", imagem: "cavalos/oreon.jpg"}
+    { nome: "Sirius", descricao: "chato", imagem: "cavalos/sirius.jpg", raca: "Árabe" },
+    { nome: "Polaris", descricao: "a mais top", imagem: "cavalos/polaris.jpg", raca: "Puro Sangue Inglês" },
+    { nome: "Himalaia", descricao: "veia", imagem: "cavalos/Himalaia.jpg", raca: "Mangalarga" },
+    { nome: "Havena", descricao: "copia da polaris", imagem: "cavalos/polaris.jpg", raca: "Mangalarga" },
+    { nome: "BelaTrix", descricao: "carrapenta", imagem: "cavalos/BelaTrix.jpg", raca: "Mangalarga" },
+    { nome: "Oreon", descricao: "filho do japa", imagem: "cavalos/oreon.jpg", raca: "Mangalarga" }
 ];
 
-cavalos.forEach((cavalo, index) => {
-    const cavaloDiv = document.getElementById(`cavalo${index + 1}`);
-    const imagem = document.getElementById(`imagem${index + 1}`) as HTMLImageElement;
-    const nome = document.getElementById(`nome${index + 1}`);
-    const descricao = document.getElementById(`descricao${index + 1}`);
+// Função para renderizar a galeria de cavalos
+function renderGallery() {
+    const galleryContainer = document.querySelector(".gallery-container");
 
-    if (cavaloDiv && imagem && nome && descricao) {
-        imagem.src = cavalo.imagem;
-        imagem.alt = `Foto do ${cavalo.nome}`;
-        nome.textContent = cavalo.nome;
-        descricao.textContent = cavalo.descricao;
+    if (galleryContainer) {
+        // Limpar o contêiner antes de adicionar novos itens
+        galleryContainer.innerHTML = "";
+
+        cavalos.forEach((cavalo, index) => {
+            // Criar os elementos para cada cavalo
+            const galleryItem = document.createElement("div");
+            galleryItem.className = "gallery-item";
+            galleryItem.onclick = () => openModal(index);
+
+            // Adicionar imagem
+            const img = document.createElement("img");
+            img.src = cavalo.imagem;
+            img.alt = `Foto do ${cavalo.nome}`;
+
+            // Criar overlay com nome
+            const overlay = document.createElement("div");
+            overlay.className = "overlay";
+            overlay.textContent = cavalo.nome;
+
+            // Adicionar elementos ao item da galeria
+            galleryItem.appendChild(img);
+            galleryItem.appendChild(overlay);
+
+            // Inserir item na galeria
+            galleryContainer.appendChild(galleryItem);
+        });
     }
-});
+}
 
+// Função para exibir os detalhes do cavalo no modal
+function openModal(index: number) {
+    const cavalo = cavalos[index];
+    const modal = document.getElementById("modal") as HTMLDivElement;
+    const modalImage = document.getElementById("modal-image") as HTMLImageElement;
+    const modalName = document.getElementById("modal-name");
+    const modalRace = document.getElementById("modal-race");
+    const modalDescription = document.getElementById("modal-description");
 
+    if (modal && modalImage && modalName && modalRace && modalDescription) {
+        modalImage.src = cavalo.imagem;
+        modalName.textContent = cavalo.nome;
+        modalRace.textContent = cavalo.raca; // Alterando para usar a raça
+        modalDescription.textContent = cavalo.descricao;
+
+        modal.style.display = "flex"; // Exibir o modal
+    }
+}
+
+// Fechar o modal
+const closeModal = document.getElementById("close-modal");
+if (closeModal) {
+    closeModal.onclick = () => {
+        const modal = document.getElementById("modal");
+        if (modal) {
+            modal.style.display = "none"; // Esconder o modal
+        }
+    };
+}
+
+// Chamar a função de renderização ao carregar a página
+document.addEventListener("DOMContentLoaded", renderGallery);

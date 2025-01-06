@@ -1,61 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Cavalos</title>
-    <script src="code.js" type="module" defer></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Cavalos</h1>
-        <p>Conheça os queridos cavalos e um pouco sobre cada um deles.</p>
-    </header>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria de Cavalos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="title">Cavalos</h1>
 
-    <div class="container">
-        <div class="horse" id="cavalo1">
-            <div class="image-container">
-                <img id="imagem1" src="cavalos/sirius.jpg" alt="Foto do Sirius">
-                <h2 id="nome1"></h2>
-            </div>
-            <p id="descricao1"></p>
-        </div>
-        <div class="horse" id="cavalo2">
-            <div class="image-container">
-                <img id="imagem2" src="cavalos/polaris.jpg" alt="Foto do Polaris">
-                <h2 id="nome2"></h2>
-            </div>
-            <p id="descricao2"></p>
-        </div>
-        <div class="horse" id="cavalo3">
-            <div class="image-container">
-                <img id="imagem3" src="cavalos/Himalaia.jpg" alt="Foto do Himalaia">
-                <h2 id="nome3"></h2>
-            </div>
-            <p id="descricao3"></p>
-        </div>
-        <div class="horse" id="cavalo4">
-            <div class="image-container">
-                <img id="imagem4" alt="Foto do Havena">
-                <h2 id="nome4"></h2>
-            </div>
-            <p id="descricao4"></p>
-        </div>
-        <div class="horse" id="cavalo5">
-            <div class="image-container">
-                <img id="imagem5" src="cavalos/BelaTrix.jpg" alt="Foto do BelaTrix">
-                <h2 id="nome5"></h2>
-            </div>
-            <p id="descricao5"></p>
-        </div>
-        <div class="horse" id="cavalo6">
-            <div class="image-container">
-                <img id="imagem6" src="cavalos/o.jpg" alt="Foto do Oreon">
-                <h2 id="nome6"></h2>
-            </div>
-            <p id="descricao6"></p>
-        </div>
+    <!-- Galeria de imagens -->
+    <div class="gallery-container">
+      <div class="gallery-item" data-index="0">
+        <img src="cavalos/sirius.jpg" alt="Foto do Sirius" />
+        <div class="overlay">Sirius</div>
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="cavalos/polaris.jpg" alt="Foto do Polaris" />
+        <div class="overlay">Polaris</div>
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="cavalos/Himalaia.jpg" alt="Foto do Himalaia" />
+        <div class="overlay">Himalaia</div>
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="cavalos/polaris.jpg" alt="Foto do Havena" />
+        <div class="overlay">Havena</div>
+      </div>
+      <div class="gallery-item" data-index="4">
+        <img src="cavalos/BelaTrix.jpg" alt="Foto do BelaTrix" />
+        <div class="overlay">BelaTrix</div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="cavalos/oreon.jpg" alt="Foto do Oreon" />
+        <div class="overlay">Oreon</div>
+      </div>
     </div>
-</body>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal" class="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="Imagem do Cavalo" />
+        <div id="modal-details">
+          <h2 id="modal-name"></h2>
+          <p id="modal-race"></p>
+          <!-- Mostrando a raça -->
+          <p id="modal-description"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="code.js"></script>
+  </body>
 </html>
